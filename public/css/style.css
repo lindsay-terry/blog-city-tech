@@ -1,19 +1,27 @@
 :root {
-    --light-background: #f2c977;
+    --dark-background: #0B6E4F;
+    --dark-accent: #073B3A;
+    --light-text: #CCE3DE;
 }
 
 body {
     font-family: "Ubuntu", sans-serif;
-    background-color: var(--light-background);
+    background-color: var(--dark-background);
 }
 
 header {
     font-family: "Bona Nova SC", sans-serif;
     font-weight: bold;
     font-size: 120%;
+    background-color: var(--dark-accent);
+}
+
+.nav-link {
+    color: var(--light-text);
 }
 
 /* custom class to overwrite navbar-brand size */
 .custom-brand {
     font-size: 120%;
+    color: var(--light-text);
 }
