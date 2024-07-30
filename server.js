@@ -13,8 +13,13 @@ const PORT = process.env.PORT || 3001;
 //sets up sessions
 const sess = {
     secret: process.env.SESSION_SECRET,
-    cookie: {},
-    resafe: false,
+    cookie: {
+        maxAge: 1800000, //30 minutes
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict',
+    },
+    resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize

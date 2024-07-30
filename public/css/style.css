@@ -1,20 +1,31 @@
 :root {
-    --dark-background: #0B6E4F;
-    --dark-accent: #073B3A;
-    --light-text: #CCE3DE;
+    --royal-blue-traditional: #012B75ff;
+    --yinmn-blue: #394976ff;
+    --lemon-chiffon: #F6EFBCff;
+    --ecru: #D1BF8Dff;
+    --marian-blue: #194180ff;
 }
 
 body {
-    font-family: "Ubuntu", sans-serif;
-    background-color: var(--dark-background);
+    font-family: "Ruluko", sans-serif;
+    /* fallback color  */
+    background-color: var(--royal-blue-traditional);
+    background-image: url('/images/tech-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 header {
-    font-family: "Bona Nova SC", sans-serif;
+    font-family: 'Libre Barcode 39 Text', system-ui, sans-serif;
     font-weight: bold;
-    font-size: 120%;
+    font-size: 150%;
     background-color: var(--dark-accent);
 }
+
+/* header h1 {
+
+} */
 
 .nav-link {
     color: var(--light-text);
