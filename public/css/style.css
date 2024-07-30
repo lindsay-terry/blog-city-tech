@@ -7,12 +7,11 @@
 }
 
 body {
-    font-family: "Ruluko", sans-serif;
+    font-family: "Kalnia", sans-serif;
     /* fallback color  */
     background-color: var(--royal-blue-traditional);
     background-image: url('/images/tech-background.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -23,10 +22,6 @@ header {
     background-color: var(--dark-accent);
 }
 
-/* header h1 {
-
-} */
-
 .nav-link {
     color: var(--light-text);
 }
@@ -35,4 +30,10 @@ header {
 .custom-brand {
     font-size: 120%;
     color: var(--light-text);
+}
+
+/* custom button coloring */
+.custom-button {
+    background-color: var(--yinmn-blue);
+    color: var(--lemon-chiffon);
 }
