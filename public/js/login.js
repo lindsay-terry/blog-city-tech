@@ -65,7 +65,7 @@ const handleSignup = async (event) => {
         }
         const response = await fetch('/api/users/', {
             method: 'POST',
-            headers: { 'Content-Tupe': 'application/json' },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
         })
 
@@ -76,9 +76,11 @@ const handleSignup = async (event) => {
             message.textContent = errorMessage.message;
         }
     } catch (error) {
-        message.textContent = error;
+        message.textContent = error.message || 'An unknown error occurred';
     }
 }
+//event listener to trigger handleSignup
+document.querySelector('.sign-up').addEventListener('click', handleSignup);
 
 //event listener to trigger handleLogin
 document.querySelector('.log-in').addEventListener('click', handleLogin);

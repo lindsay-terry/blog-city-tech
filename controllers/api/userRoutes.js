@@ -59,9 +59,16 @@ router.post('/', async (req, res) => {
             password: password,
         });
 
-        res.status(200).json(newUser);
+        //log user in after signing up
+            req.session.user_id = newUser.id;
+            req.session.logged_in = true;
+
+            req.session.save(() => {
+                res.status(201).json(newUser);
+            })
     } catch (error) {
-        res.status(500).json(error);
+        console.error(error);
+        res.status(500).json({ message: 'Inernal server error' });
     }
 });
 
