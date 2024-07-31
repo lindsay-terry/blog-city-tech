@@ -1,3 +1,4 @@
+//function to handle logging out
 const handleLogout = async () => {
     try {
         const response = await fetch('/api/users/logout', {
