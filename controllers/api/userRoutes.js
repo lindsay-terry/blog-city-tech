@@ -45,12 +45,20 @@ router.post('/logout', async (req, res) => {
 
 //signup route
 router.post('/', async (req, res) => {
+    const { username, password } = req.body;
     try {
+        //check if username is available
+        const checkUsername = await User.findOne({ where: { username }});
+
+        if (checkUsername) {
+            return res.status(409).json({ message: 'Username is already taken' });
+        }
+
         const newUser = await User.create({
-            username: req.body.username,
-            password: req.body.password,
+            username: username,
+            password: password,
         });
-        
+
         res.status(200).json(newUser);
     } catch (error) {
         res.status(500).json(error);
