@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         })
         const posts = postData.map(post => post.get({ plain: true }));
         
-        res.render('homepage', { posts, logged_in: req.session.logged_in });
+        res.render('homepage', { posts, logged_in: req.session.logged_in, pageTitle: 'Blog City Tech' });
     } catch (error) {
         res.status(500).json(error);
     }
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 //route to login page
 router.get('/login', async (req, res) => {
     try {
-        res.render('login', { logged_in: req.session.logged_in });
+        res.render('login', { logged_in: req.session.logged_in, pageTitle: 'Blog City Tech' });
     } catch (error) {
         res.status(500).json(error);
     }
@@ -30,7 +30,7 @@ router.get('/login', async (req, res) => {
 router.get('/dashboard', auth, async (req, res) => {
     try {
     
-        res.render('dashboard', { logged_in: req.session.logged_in });
+        res.render('dashboard', { logged_in: req.session.logged_in, pageTitle: 'Your Dashboard' });
     } catch (error) {
         res.status(500).json(error);
     }

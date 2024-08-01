@@ -4,6 +4,7 @@
     --lemon-chiffon: #F6EFBCff;
     --ecru: #D1BF8Dff;
     --marian-blue: #194180ff;
+    --bondi-blue: #4D8DA5ff;
 }
 
 body {
@@ -19,17 +20,6 @@ header {
     font-family: 'Libre Barcode 39 Text', system-ui, sans-serif;
     font-weight: bold;
     font-size: 150%;
-    background-color: var(--dark-accent);
-}
-
-.nav-link {
-    color: var(--light-text);
-}
-
-/* custom class to overwrite navbar-brand size */
-.custom-brand {
-    font-size: 120%;
-    color: var(--light-text);
 }
 
 /* custom button coloring */
@@ -37,3 +27,8 @@ header {
     background-color: var(--yinmn-blue);
     color: var(--lemon-chiffon);
 }
+
+/* custom styling for sign up and log in forms  */
+/* .custom-background {
+    background-color: var(--bondi-blue);
+} */
