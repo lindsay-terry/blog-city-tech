@@ -29,8 +29,15 @@ router.get('/login', async (req, res) => {
 //route to dashboard
 router.get('/dashboard', auth, async (req, res) => {
     try {
-    
-        res.render('dashboard', { logged_in: req.session.logged_in, pageTitle: 'Your Dashboard' });
+        const userId = req.session.user_id;
+        const userData = await Post.findAll({
+            where: { author_id: userId },
+            include: [{ model: Comment }, { model: User }],
+        });
+        
+        const posts = userData.map(post => post.get({ plain: true }));
+
+        res.render('dashboard', { posts, userId, logged_in: req.session.logged_in, pageTitle: 'Your Dashboard' });
     } catch (error) {
         res.status(500).json(error);
     }
