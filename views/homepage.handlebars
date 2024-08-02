@@ -1,7 +1,7 @@
 <div class="row row-cols-1 row-cols-md-2 g-4 m-3"></div>
 {{#each posts as |post|}}
   <div class="col">
-    <div class="card m-3">
+    <div class="card m-3" data-id="{{post.id}}">
       <div class="card-body p-4">
         <h5 class="card-title border-bottom">{{post.title}}</h5>
         <p class="card-text">{{post.content}}</p>
@@ -9,6 +9,25 @@
       </div>
     </div>
   </div>
+  {{!-- comments  --}}
+    <div class="col d-none comment-div" data-id="{{post.id}}">
+    <div class="card m-3">
+      <div class="card-body p-4">
+        {{!-- if user is logged in, show comment form.  otherwise tell them again to log in  --}}
+          {{#if ../logged_in}}
+            <div class="mb-3">
+              <label for="comment{{post.id}}" class="form-label">Add a Comment</label>
+              <textarea class="form-control" id="comment{{post.id}}" rows="3"></textarea>
+              <button class="btn custom-button m-2" id="submit-comment{{post.id}}">Submit</button>
+            </div>
+          {{else}}
+          <h6> <a href="/login" class="text-primary-emphasis text-decoration-none">Log in</a> to add a comment!</h6>
+          {{/if}}
+        </div>
+    </div>
+  </div>
 {{/each}}
 </div>
+
+<script src="/js/comments.js"></script>
 
