@@ -14,6 +14,7 @@ body {
     background-image: url('/images/tech-background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
