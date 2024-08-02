@@ -18,7 +18,7 @@
             <div class="mb-3">
               <label for="comment{{post.id}}" class="form-label">Add a Comment</label>
               <textarea class="form-control" id="comment{{post.id}}" rows="3"></textarea>
-              <button class="btn custom-button m-2" id="submit-comment{{post.id}}">Submit</button>
+              <button class="btn custom-button m-2 submit-comment" data-id="{{post.id}}">Submit</button>
             </div>
           {{else}}
           <h6> <a href="/login" class="text-primary-emphasis text-decoration-none">Log in</a> to add a comment!</h6>
