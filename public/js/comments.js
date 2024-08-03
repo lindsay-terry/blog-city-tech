@@ -4,8 +4,10 @@ const toggleComments = (id) => {
     if (comments) {
         comments.classList.toggle('d-none');
     } 
+    comments.scrollIntoView({ behavior: 'smooth' });
 };
 
+//fetch request to add a comment
 const handleAddComment = async (id, userId) => {
     const user = userId;
     const comment = document.querySelector(`#comment${id}`).value.trim();

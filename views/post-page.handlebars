@@ -1,5 +1,5 @@
   <div class="col">
-    <div class="card m-3" data-id="{{post.id}}">
+    <div class="card custom-background m-3" data-id="{{post.id}}">
       <div class="card-body p-4">
         <h5 class="card-title border-bottom">{{post.title}}</h5>
         <p class="card-text">{{post.content}}</p>
@@ -7,18 +7,16 @@
       </div>
     </div>
   </div>
-    {{!-- <p>{{comment.content}}</p> --}}
+
     <div class="col comment-div" data-id="{{post.id}}">
-    {{!-- {{#if comments}} --}}
-    {{!-- {{> comment}} --}}
     {{#each post.comments as |comment|}}
-      <div class="card m-4" data-id="{{comment.id}}">
+      <div class="card m-4 custom-background" data-id="{{comment.id}}">
       <div class="card-body p-4">
         <p class="card-text">{{comment.content}}</p>
         <p class="card-text"><small class="text-body-secondary"> Posted by: {{comment.user.username}} on {{ formatDate comment.createdAt}} </small></p>
       </div>
     </div>
     {{/each}}
-    {{!-- {{/if}} --}}
+
     </div>
 

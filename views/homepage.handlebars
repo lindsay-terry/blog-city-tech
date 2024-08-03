@@ -1,8 +1,6 @@
-{{!-- <div class="row row-cols-1 row-cols-md-2 g-4 m-3"></div> --}}
 {{#each posts as |post|}}
-{{!-- {{> post}} --}}
   <div class="col">
-    <div class="card m-3" data-id="{{post.id}}">
+    <div class="card custom-background m-3" data-id="{{post.id}}">
       <div class="card-body p-4">
         <h5 class="card-title border-bottom">{{post.title}}</h5>
         <p class="card-text">{{post.content}}</p>
@@ -10,24 +8,11 @@
       </div>
     </div>
   </div>
+
   {{!-- comments  --}}
-
+    <div class="col d-none comment-div m-3" data-id="{{post.id}}">
   {{!-- add a comment  --}}
-
-    <div class="col d-none comment-div" data-id="{{post.id}}">
-    {{#if comments}}
-    {{!-- {{> comment}} --}}
-    {{#each comments as |comment|}}
-      <div class="card m-3" data-id="{{comment.id}}">
-      <div class="card-body p-4">
-        <p class="card-text">{{comment.content}}</p>
-        <p class="card-text"><small class="text-body-secondary"> Posted by: {{comment.user.username}} on {{ formatDate comment.createdAt}} </small></p>
-      </div>
-    </div>
-    {{/each}}
-    {{/if}}
-
-    <div class="card m-4">
+    <div class="card m-4 custom-background">
       <div class="card-body p-4">
         {{!-- if user is logged in, show comment form.  otherwise tell them again to log in  --}}
           {{#if ../logged_in}}
@@ -41,6 +26,17 @@
           {{/if}}
         </div>
     </div>
+{{!-- display comments  --}}
+    {{#if comments}}
+    {{#each comments as |comment|}}
+      <div class="card m-3 custom-background" data-id="{{comment.id}}">
+      <div class="card-body p-4">
+        <p class="card-text">{{comment.content}}</p>
+        <p class="card-text"><small class="text-body-secondary"> Posted by: {{comment.user.username}} on {{ formatDate comment.createdAt}} </small></p>
+      </div>
+    </div>
+    {{/each}}
+    {{/if}}
   </div>
 {{/each}}
 </div>
