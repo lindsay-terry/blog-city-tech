@@ -93,6 +93,26 @@ const handleEditPost = async (id, user) => {
     } document.getElementById('edit-message-div').textContent = 'Please fill out title and content fields';
 };
 
+const handleDeletePost = async (id) => {
+    if (!id) {
+        document.getElementById('edit-message-div').textContent = 'Error. Post ID is missing.';
+    } else {
+        try {
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                document.getElementById('edit-message-div').textContent = 'Error deleting post';
+            }
+        } catch (error) {
+            document.getElementById('edit-message-div').textContent = error.message;
+        }
+    }
+};
+
 //event listener to submit edits to post
 document.querySelector('#edit-post').addEventListener('click', function(event){
     const id = event.target.getAttribute('data-id');
@@ -100,6 +120,11 @@ document.querySelector('#edit-post').addEventListener('click', function(event){
     handleEditPost(id, userId);
 });
 
+//event listener to submit to delete a post
+document.querySelector('#delete-post').addEventListener('click', function(event){
+    const id = event.target.getAttribute('data-id');
+    handleDeletePost(id);
+});
 
 //event listener to open edit post form
 document.addEventListener('click', async function(event) {
