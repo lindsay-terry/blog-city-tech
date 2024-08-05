@@ -27,7 +27,7 @@ const handleCreatePost = async (id) => {
             });
 
             if (response.ok) {
-                document.location.replace('/');
+                document.location.replace('/dashboard');
             } else {
                 document.getElementById('message-div').textContent = "There's been an error processing your request.  Please try again.";
             }

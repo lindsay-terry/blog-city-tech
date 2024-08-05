@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     try { //get all post data to display on page
         const postData = await Post.findAll({
             include: [{ model: Comment, include: [{ model: User, attributes: ['username']}], 
-        }, { model: User }],
+        }, { model: User }], order: [['updatedAt', 'DESC']],
         })
         const posts = postData.map(post => post.get({ plain: true }));
 
@@ -56,6 +56,7 @@ router.get('/dashboard', auth, async (req, res) => {
         const userData = await Post.findAll({
             where: { author_id: userId },
             include: [{ model: Comment }, { model: User }],
+            order: [['updatedAt', 'DESC']],
         });
         
         const posts = userData.map(post => post.get({ plain: true }));
