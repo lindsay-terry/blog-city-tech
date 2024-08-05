@@ -3,7 +3,7 @@ const handleLogout = async () => {
     try {
         const response = await fetch('/api/users/logout', {
             method: 'POST',
-            hearders: {'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
