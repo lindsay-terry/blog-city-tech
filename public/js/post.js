@@ -93,6 +93,7 @@ const handleEditPost = async (id, user) => {
     } document.getElementById('edit-message-div').textContent = 'Please fill out title and content fields';
 };
 
+//function to delete post
 const handleDeletePost = async (id) => {
     if (!id) {
         document.getElementById('edit-message-div').textContent = 'Error. Post ID is missing.';

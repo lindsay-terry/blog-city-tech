@@ -51,7 +51,7 @@ router.get('/login', async (req, res) => {
 
 //route to dashboard
 router.get('/dashboard', auth, async (req, res) => {
-    try {
+    try { //find all posts by specific author
         const userId = req.session.user_id;
         const userData = await Post.findAll({
             where: { author_id: userId },

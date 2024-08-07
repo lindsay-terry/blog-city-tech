@@ -1,8 +1,6 @@
 :root {
     --grape: #6C19AAff;
     --magnolia: #FDF6FFff;
-    --fandango: #B72D81ff;
-    --federal-blue: #170864ff;
     --tekhelet: #532592ff;
 }
 
@@ -28,7 +26,7 @@ header {
     color: var(--magnolia);
 }
 
-/* custom light blue background  */
+/* custom magnolia/light pink background  */
 .custom-background {
     background-color: var(--magnolia);
 } 
